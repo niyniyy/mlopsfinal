@@ -2,6 +2,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 
+def main():
+
 # Features and labels
 X = df[["session_length", "articles_read", "comments_posted", "subscription_status"]]
 y = df["user_type"]
