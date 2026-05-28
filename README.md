@@ -1,5 +1,5 @@
 # ML User Type Prediction System
-
+PROJECT STREAMLIT LINK: https://mlopsfinal-hy2lteznjnwsrvmgbncq54.streamlit.app/
 ## Overview
 
 This project is an end-to-end Machine Learning deployment pipeline for predicting user types based on platform engagement metrics. The application allows users to upload CSV files and receive predictions through an interactive Streamlit web interface.
