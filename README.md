@@ -200,6 +200,6 @@ Users can upload CSV files directly through the web interface and receive predic
 
 # Author
 
-Lily Michaelis
+Hariniy G
 
-Data Science Undergraduate | Machine Learning & MLOps Enthusiast
+Data Science Undergraduate | Machine Learning & Data Analytics 
