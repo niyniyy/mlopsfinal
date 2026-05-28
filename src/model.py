@@ -5,49 +5,41 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 
+# Load dataset
+df = pd.read_csv("data.csv")
 
-def main():
-
-    # Load dataset
-    df = pd.read_csv("data.csv")
-
-    # Features and labels
-    X = df[[
+# Features and labels
+X = df[
+    [
         "session_length",
         "articles_read",
         "comments_posted",
         "subscription_status"
-    ]]
+    ]
+]
 
-    y = df["user_type"]
+y = df["user_type"]
 
-    # Train-test split
-    X_train, X_test, y_train, y_test = train_test_split(
-        X,
-        y,
-        test_size=0.2,
-        random_state=42
-    )
+# Split
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
+)
 
-    # Model
-    model = RandomForestClassifier(
-        n_estimators=100,
-        random_state=42
-    )
+# Train model
+model = RandomForestClassifier()
 
-    model.fit(X_train, y_train)
+model.fit(X_train, y_train)
 
-    # Predictions
-    y_pred = model.predict(X_test)
+# Predict
+y_pred = model.predict(X_test)
 
-    # Evaluation
-    print(classification_report(y_test, y_pred))
+# Evaluation
+print(classification_report(y_test, y_pred))
 
-    # SAVE MODEL
-    joblib.dump(model, "model.pkl")
+# SAVE MODEL
+joblib.dump(model, "model.pkl")
 
-    print("Model saved as model.pkl")
-
-
-if __name__ == "__main__":
-    main()
+print("model.pkl created successfully")
