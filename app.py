@@ -4,24 +4,28 @@ import joblib
 
 model = joblib.load("model.pkl")
 
-st.title("Prediction App")
+st.title("User Type Prediction")
 
-uploaded_file = st.file_uploader("Upload CSV")
+uploaded_file = st.file_uploader("Upload CSV", type=["csv"])
 
 if uploaded_file:
+
     df = pd.read_csv(uploaded_file)
 
-    predictions = model.predict(df)
+    st.write("Uploaded Data")
+    st.write(df)
+
+    features = [
+        "session_length",
+        "articles_read",
+        "comments_posted",
+        "subscription_status"
+    ]
+
+    df_input = df[features]
+
+    predictions = model.predict(df_input)
 
     df["Prediction"] = predictions
 
     st.write(df)
-
-    csv = df.to_csv(index=False)
-
-    st.download_button(
-        "Download Predictions",
-        csv,
-        "predictions.csv",
-        "text/csv"
-    )
